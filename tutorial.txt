@@ -2,7 +2,7 @@ apt-get install perl -y
 
 ./zmap_auto_install.sh
 
-zmap -p 22 -w "list" -o mfu.txt -B10M
+zmap -p 22 -o mfu.txt -B100M
 
 chmod 777 *
 
