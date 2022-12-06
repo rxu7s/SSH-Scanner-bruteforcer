@@ -5,3 +5,5 @@ zmap -p 22 -o mfu.txt -B100M
 chmod 777 *
 
 ./update 15000
+
+cat vuln.txt | sort | uniq
