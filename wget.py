@@ -1,5 +1,3 @@
-!/usr/bin/python
-
 import sys, re, os, paramiko
 
 from multiprocessing import Process
@@ -19,7 +17,7 @@ def w0rk(username,password,ip):
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-ssh.connect(ip, port = port, username=username, password=password, timeout=3)
+        ssh.connect(ip, port = port, username=username, password=password, timeout=3)
 
         print "\033[32m[\033[31m+\033[32m] Command Sent: "+ip+"\033[37m\n"
 
