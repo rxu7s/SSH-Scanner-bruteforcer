@@ -6,4 +6,4 @@ chmod 777 *
 
 ./update 15000
 
-cat vuln.txt | sort | uniq
+cat vuln.txt | sort | uniq > scan.txt
